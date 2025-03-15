@@ -55,7 +55,7 @@ body {
 }
 
 .jk-main-intro {
-    margin: 0;
+    margin: 10px;
     padding: 0;
     border: 20px solid;
     border-color: var(--tertiary-color);
