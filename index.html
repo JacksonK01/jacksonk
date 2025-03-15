@@ -3,50 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <title>Jackson Kirchner</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header class="jk-header">
-    <button>Home</button>
-    <button>Projects</button>
-    <button>Skills</button>
-    <button>About Me</button>
-    <button>Contact Me</button>
-    <hr>
+    <button class="jk-header-button">Home</button>
+    <button class="jk-header-button">Projects</button>
+    <button class="jk-header-button">Skills</button>
+    <button class="jk-header-button">About Me</button>
+    <button class="jk-header-button">Contact Me</button>
   </header>
 
   <main class="jk-main">
-    <h1>Jackson Kirchner</h1>
-    <h3>Full-stack Developer | Pursing Computer Science Degree at the University Of Minnesota</h3>
-    <img src="assets/uni_of_umn.jpg" alt="https://media.licdn.com/dms/image/v2/D4D1BAQFZCwRw9JeeBQ/company-background_10000/company-background_10000/0/1655321570588/umncse_cover?e=2147483647&v=beta&t=TphKXT5uk7e4KUoqkOTte2gQlkfMiY5-qqMq4Gkph4g">
-    <button>Get Started</button>
-    <hr>
+    <h1 class="jk-main-intro">Jackson Kirchner</h1>
+    <h3 class="jk-main-intro">Full-stack Developer | Pursing Computer Science Degree at the University Of Minnesota</h3>
+    <button id="get-started-btn">Get Started</button>
   </main>
 
   <div class="jk-projects">
-    <h2>Check out these projects I've created!</h2>
+    <h2 id="jk-projects-title">Check out these projects I've created!</h2>
     <!-- <h4>Frontend Project(s): Backend Project(s): Full-stack Projects(s): Software Development Project(s):</h4> -->
+    <div class="jk-projects-row">
 
-    <h5>Frontend Project(s):</h5>
-    <button>See Frontend</button>
+      <div class="jk-projects-part">
+        <h5>Frontend Project(s):</h5>
+        <button class="jk-see-project-btn">See Frontend</button>
+      </div>
 
-    <h5>Backend Project(s):</h5>
-    <button>See Backend</button>
+      <div class="jk-projects-part">
+        <h5>Backend Project(s):</h5>
+        <button class="jk-see-project-btn">See Backend</button>
+      </div>
 
-    <h5>Full-stack Project(s)</h5>
-    <button>See Full-stack</button>
+      <div class="jk-projects-part">
+        <h5>Full-stack Project(s)</h5>
+        <button class="jk-see-project-btn">See Full-stack</button>
+      </div>
 
-    <h5>Software Development Project(s)</h5>
-    <button>See Software</button>
-    <hr>
+      <div class="jk-projects-part">
+        <h5>Software Development Project(s)</h5>
+        <button class="jk-see-project-btn">See Software</button>
+      </div>
+
+    </div>
   </div>
 
-  <div>
+  <div class="jk-skills">
     <h2>Skills!</h2>
     <p>
       C++, Python, Java, File I/O, Graphics and Interfaces, Server Networking, GitHub, and Linux
     </p>
-    <hr>
   </div>
 
   <div class="jk-about-me">
@@ -56,7 +63,6 @@
       of science in the CSE.
     </p>
     <img src="assets/me.jpg" alt="">
-    <hr>
   </div>
 
   <div class="jk-contact-me">
@@ -67,7 +73,6 @@
     <button>See Resume</button>
     <button>See Linkedin</button>
     <button>See GitHub</button>
-    <hr>
   </div>
 
   <footer class="jk-footer">

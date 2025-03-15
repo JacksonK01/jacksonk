@@ -1,0 +1,139 @@
+:root {
+    --primary-color: #86af49;
+    --secondary-color: #b5e7a0;
+    --tertiary-color: #e3eaa7;
+    --quaternary-color: #d5e1df;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+.jk-header-button {
+    background-color: var(--primary-color);
+    color: var(--quaternary-color);
+    width: 10%;
+    height: 100%;
+    margin: 0;
+}
+
+.jk-header-button:hover {
+    background-color: var(--quaternary-color);
+    color: var(--primary-color);
+}
+
+.jk-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--primary-color);
+    height: 50px;
+}
+
+.jk-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    align-content: space-evenly;
+
+    background-color: var(--secondary-color);
+    background-image: url("assets/uni_of_umn.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    border: 40px solid;
+    border-color: var(--secondary-color);
+
+    height: 600px;
+}
+
+.jk-main-intro {
+    margin: 0;
+    padding: 0;
+    border: 20px solid;
+    border-color: var(--tertiary-color);
+    background-color: var(--tertiary-color);
+}
+
+#get-started-btn {
+    margin: 10px;
+    border-radius: 20px;
+    height: 70px;
+    width: 300px;
+    font-size: 25px;
+    background-color: var(--primary-color);
+    color: var(--quaternary-color);
+}
+
+#get-started-btn:hover {
+    background-color: var(--quaternary-color);
+    color: var(--primary-color);
+}
+
+.jk-projects {
+    background-color: var(--tertiary-color);
+    height: 500px;
+}
+
+#jk-projects-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jk-projects-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.jk-projects-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.jk-see-project-btn {
+    border-radius: 20px;
+    width: 100%;
+    height: 75px;
+    background-color: var(--primary-color);
+    color: var(--quaternary-color);
+}
+
+.jk-see-project-btn:hover {
+    background-color: var(--quaternary-color);
+    color: var(--primary-color);
+}
+
+.jk-skills {
+    height: 500px;
+    background-color: var(--secondary-color);
+}
+
+.jk-about-me {
+    background-color: var(--tertiary-color);
+}
+
+.jk-contact-me {
+    height: 150px;
+    background-color: var(--secondary-color);
+}
+
+.jk-footer {
+    height: 75px;
+    background-color: var(--primary-color);
+}
