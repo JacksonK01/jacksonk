@@ -1,8 +1,8 @@
 :root {
-    --primary-color: #86af49;
-    --secondary-color: #b5e7a0;
-    --tertiary-color: #e3eaa7;
-    --quaternary-color: #d5e1df;
+    --primary-color: #618685;
+    --secondary-color: #80ced6;
+    --tertiary-color: #ddeedd;
+    --quaternary-color: #d5f4e6;
 }
 
 * {
@@ -135,5 +135,5 @@ body {
 
 .jk-footer {
     height: 75px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
