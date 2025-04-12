@@ -1,5 +1,4 @@
 import Bridge from './Bridge.js'
-import Platform from "./Platform.js";
 
 class BridgeManager {
     constructor(engine) {
@@ -15,7 +14,7 @@ class BridgeManager {
     }
 
     createBridge(x) {
-        let width = 10;
+        let width = 6;
 
         if(this.top <= -1) {
             this.bridges.push(new Bridge(x, this.y, width, 0))
@@ -29,6 +28,10 @@ class BridgeManager {
 
     alertStopGrowing() {
         this.bridges[this.top].stopGrowing();
+    }
+
+    getDistanceToWalk() {
+        return this.bridges[this.top].getLengthAfterRotate();
     }
 
     update() {

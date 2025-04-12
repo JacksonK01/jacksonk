@@ -3,7 +3,7 @@ class StickHeroPlayer {
         this.engine = engine;
 
         this.speed = 4;
-        this.x = 0;
+        this.x = 60;
         this.y = 0;
 
         this.width = 50
@@ -12,7 +12,47 @@ class StickHeroPlayer {
         this.img = new Image();
         this.img.src = './assets/dino.png'
 
-        this.sticks = [];
+        this.isWalking = false;
+        this.locationX = 0;
+
+        this.delayCounter = 0;
+        this.delayBeforeWalk = 0;
+    }
+
+    //Location to walk to and delay for before start walking
+    //Can only ever walk right (Not really a need to walk left
+    walkTo(locationX, delay) {
+        if(this.isWalking) {
+            return
+        }
+
+        this.isWalking = true;
+        this.locationX = locationX;
+        this.delayBeforeWalk = delay;
+    }
+
+    walkUpdate() {
+        if(!this.isWalking) {
+            return;
+        }
+
+        if(this.delayCounter <= this.delayBeforeWalk) {
+            this.delayCounter++;
+            return;
+        }
+
+        if(this.x >= this.locationX) {
+            this.isWalking = false;
+            this.delayCounter = 0;
+            this.delayBeforeWalk = 0;
+            return;
+        }
+
+        this.x += this.speed;
+    }
+
+    fall() {
+        this.y++;
     }
 
     draw(context) {
@@ -23,8 +63,8 @@ class StickHeroPlayer {
         context.restore();
     }
 
-    createBridge() {
-
+    update() {
+        this.walkUpdate()
     }
 }
 

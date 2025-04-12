@@ -7,18 +7,19 @@ class GameEngine {
     constructor(canvas) {
         this.canvas = canvas;
         this.context = canvas.getContext("2d")
-
         this.windowWidth = canvas.width;
         this.windowHeight = canvas.height;
 
-        this.player = new StickHeroPlayer(this);
+        let startingY = 390;
+        let startingX = 50;
 
-        let startingY = 200;
+        this.player = new StickHeroPlayer(this);
+        this.player.x = startingX
         this.player.y = startingY;
 
         this.platformManager = new PlatformManager(this)
-
-        this.platformManager.addPlatform(this.player.x, 100);
+        this.platformManager.generateStartingPlatform(startingX)
+        this.generateNextPlatforms()
 
         this.bridgeManager = new BridgeManager(this);
 
@@ -31,7 +32,6 @@ class GameEngine {
                 return;
             }
             if(this.currentPhase === Phases.WAITING) {
-                //alert('pressed space')
                 this.currentPhase = Phases.STRETCHING
                 console.log('keydown')
             }
@@ -43,7 +43,6 @@ class GameEngine {
                 return;
             }
             if(this.currentPhase === Phases.STRETCHING) {
-                //alert("let go of space")
                 this.currentPhase = Phases.TURNING
                 console.log('keyup')
             }
@@ -65,8 +64,17 @@ class GameEngine {
                 this.turningPhase()
                 break
             }
+            case Phases.WALKING: {
+                this.walkingPhase()
+                break
+            }
+            case Phases.FALLING: {
+                this.fallingPhase()
+                break
+            }
         }
         this.bridgeManager.update()
+        this.player.update()
     }
 
     stretchPhase() {
@@ -75,7 +83,42 @@ class GameEngine {
 
     turningPhase() {
         this.bridgeManager.alertStopGrowing()
-        this.currentPhase = Phases.WAITING
+        this.currentPhase = Phases.WALKING;
+    }
+
+    walkingPhase() {
+
+        // if(!this.player.isWalking) {
+        //     let platform = this.platformManager.getTopPlatform();
+        //     //Made it to platform
+        //     if(platform.x <= this.player.x <= (platform.x + platform.width)) {
+        //         this.currentPhase = Phases.WAITING
+        //     }
+        //     //Didnt make it
+        //     else {
+        //         this.currentPhase = Phases.FALLING
+        //     }
+        // }
+
+        if(!this.player.isWalking) {
+            this.currentPhase = Phases.WAITING
+        }
+
+        let seconds = 2;
+        let FPS = 60;
+        this.player.walkTo(this.bridgeManager.getDistanceToWalk() - (this.player.width / 2), seconds * FPS)
+        console.log(this.bridgeManager.getDistanceToWalk())
+    }
+
+    fallingPhase() {
+        this.player.fall()
+    }
+
+    generateNextPlatforms() {
+        let distance = this.windowWidth - 200;
+        let width = 50 + ((Math.random() * 100) * 1.5)
+
+        this.platformManager.addPlatform(distance, width)
     }
 
     draw() {
