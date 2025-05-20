@@ -10,10 +10,18 @@ class GameEngine {
         this.windowWidth = canvas.width;
         this.windowHeight = canvas.height;
 
+        this.resizeCanvas();
+        window.addEventListener("resize", () => this.resizeCanvas());
+
+        this.isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
         this.score = 0
 
-        let startingY = 390;
-        let startingX = 50;
+        //This is used to display starting message
+        this.hasStarted = false
+
+        let startingY = this.windowHeight * 0.6;
+        let startingX = this.windowWidth * 0.1;
 
         this.startX = startingX
 
@@ -42,7 +50,7 @@ class GameEngine {
             }
             if(this.currentPhase === Phases.WAITING) {
                 this.currentPhase = Phases.STRETCHING
-                console.log('keydown')
+                this.hasStarted = true
             } else if(this.currentPhase === Phases.FALLING) {
                 this.reset()
             }
@@ -55,7 +63,6 @@ class GameEngine {
             }
             if(this.currentPhase === Phases.STRETCHING) {
                 this.currentPhase = Phases.TURNING
-                console.log('keyup')
             }
 
         })
@@ -63,8 +70,8 @@ class GameEngine {
         canvas.addEventListener('touchstart', (event) => {
             event.preventDefault(); // prevent scrolling
             if (this.currentPhase === Phases.WAITING) {
+                this.hasStarted = true
                 this.currentPhase = Phases.STRETCHING;
-                console.log('touchstart');
             } else if (this.currentPhase === Phases.FALLING) {
                 this.reset();
             }
@@ -74,14 +81,13 @@ class GameEngine {
             event.preventDefault(); // prevent scrolling
             if (this.currentPhase === Phases.STRETCHING) {
                 this.currentPhase = Phases.TURNING;
-                console.log('touchend');
             }
         });
 
         canvas.addEventListener('mousedown', (event) => {
             if (this.currentPhase === Phases.WAITING) {
                 this.currentPhase = Phases.STRETCHING;
-                console.log('mousedown');
+                this.hasStarted = true
             } else if (this.currentPhase === Phases.FALLING) {
                 this.reset();
             }
@@ -90,11 +96,17 @@ class GameEngine {
         canvas.addEventListener('mouseup', (event) => {
             if (this.currentPhase === Phases.STRETCHING) {
                 this.currentPhase = Phases.TURNING;
-                console.log('mouseup');
             }
         });
 
 
+    }
+
+    resizeCanvas() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        this.windowWidth = this.canvas.width;
+        this.windowHeight = this.canvas.height;
     }
 
     update() {
@@ -198,11 +210,10 @@ class GameEngine {
     }
 
     generateNextPlatform() {
-        const minGap = 100;
-        // const maxGap = this.windowWidth - 200;
-        const maxGap = 300;
-        const minWidth = 55;
-        const maxWidth = 120;
+        const minGap = this.windowWidth * 0.1;
+        const maxGap = this.windowWidth * 0.4;
+        const minWidth = this.windowWidth * 0.08;
+        const maxWidth = this.windowWidth * 0.1;
 
         const difficultyFactor = Math.min(this.score * 1.05, 1);
 
@@ -269,7 +280,30 @@ class GameEngine {
 
         this.context.fillText('You Fell!', this.windowWidth / 2,this.windowHeight / 3);
         this.context.fillText('Score: ' + this.score, this.windowWidth / 2,(this.windowHeight / 3) + y);
-        this.context.fillText('Press Space to try again', this.windowWidth / 2,(this.windowHeight / 3) + (y * 2));
+
+        if(this.isMobile) {
+            this.context.fillText('Tap to try again', this.windowWidth / 2,(this.windowHeight / 3) + (y * 2));
+        } else {
+            this.context.fillText('Press Space or Left-Click to try again', this.windowWidth / 2,(this.windowHeight / 3) + (y * 2));
+        }
+
+        this.context.restore()
+    }
+
+    drawStart() {
+        this.context.save()
+
+        this.context.font = '30px Arial';
+        this.context.fillStyle = 'black';
+        this.context.textAlign = 'center';
+        this.context.textBaseline = 'middle';
+
+        let text = 'Hold Space or Left-Click on your mouse to start'
+        if(this.isMobile) {
+            text = 'Tap to start'
+        }
+
+        this.context.fillText(text, this.windowWidth / 2,this.windowHeight / 3);
 
         this.context.restore()
     }
@@ -288,6 +322,10 @@ class GameEngine {
             this.drawLose()
         } else {
             this.drawScore()
+        }
+
+        if(!this.hasStarted) {
+            this.drawStart()
         }
     }
 }
