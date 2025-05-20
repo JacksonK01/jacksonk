@@ -12,23 +12,38 @@ class PlatformManager {
         this.y = player.y + player.height - 9;
     }
 
-    addPlatform(x, width) {
+    addPlatform(x, width, isStartingPlatform = false) {
         if(this.top <= -1) {
             this.top = 0;
         } else if(this.top >= 0) {
             this.top++;
         }
 
-        this.platforms.push(new Platform(x, this.y, width, this.engine.windowHeight))
+        this.platforms.push(new Platform(x, this.y, width, this.engine.windowHeight, isStartingPlatform))
     }
 
     generateStartingPlatform(x) {
-        this.addPlatform(x, 100)
+        this.addPlatform(x, 100, true)
     }
 
     //Used to determine the distance to the next platform
     getTopPlatform() {
         return this.platforms[this.top];
+    }
+
+    forEach(action) {
+
+        this.platforms.forEach((platform) => {
+            action(platform)
+        })
+
+    }
+
+    update() {
+        this.platforms.forEach((platform) => {
+            platform.update()
+        })
+
     }
 
     draw(ctx) {

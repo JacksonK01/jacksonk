@@ -19,6 +19,8 @@ class Bridge {
         this.x4 = this.x1;
         this.y4 = this.y3;
 
+        this.growSpeed = 2
+
         this.isGrowing = true;
 
         this.isFalling = false;
@@ -36,8 +38,8 @@ class Bridge {
     }
 
     grow() {
-        this.y3 -= 1;
-        this.y4 -= 1;
+        this.y3 -= this.growSpeed;
+        this.y4 -= this.growSpeed;
     }
 
     stopGrowing() {

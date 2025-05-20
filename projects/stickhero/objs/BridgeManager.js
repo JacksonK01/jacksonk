@@ -34,6 +34,14 @@ class BridgeManager {
         return this.bridges[this.top].getLengthAfterRotate();
     }
 
+    forEach(action) {
+
+        this.bridges.forEach((bridge) => {
+            action(bridge)
+        })
+
+    }
+
     update() {
         this.bridges.forEach((bridge) => {
             bridge.update()

@@ -1,11 +1,11 @@
-import GameEngine from "./objs/GameEngine.js"
+import Game from "./objs/Game.js";
 
 let canvas = document.getElementById('game');
 
-let engine = new GameEngine(canvas);
+let game = new Game(canvas);
 
 function loop() {
-    engine.gameLoop()
+    game.gameLoop()
     requestAnimationFrame(loop)
 }
 
