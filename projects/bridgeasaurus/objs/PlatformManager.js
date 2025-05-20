@@ -12,14 +12,14 @@ class PlatformManager {
         this.y = player.y + player.height - 9;
     }
 
-    addPlatform(x, width, isStartingPlatform = false) {
+    addPlatform(x, width, isInstant = false) {
         if(this.top <= -1) {
             this.top = 0;
         } else if(this.top >= 0) {
             this.top++;
         }
 
-        this.platforms.push(new Platform(x, this.y, width, this.engine.windowHeight, isStartingPlatform))
+        this.platforms.push(new Platform(x, this.y, width, this.engine.windowHeight, isInstant))
     }
 
     generateStartingPlatform(x) {

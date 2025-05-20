@@ -31,7 +31,7 @@ class GameEngine {
 
         this.platformManager = new PlatformManager(this)
         this.platformManager.generateStartingPlatform(startingX)
-        this.generateNextPlatform()
+        this.generateNextPlatform(true)
 
         this.bridgeManager = new BridgeManager(this);
 
@@ -209,7 +209,7 @@ class GameEngine {
         }
     }
 
-    generateNextPlatform() {
+    generateNextPlatform(instant = false) {
         const minGap = this.windowWidth * 0.1;
         const maxGap = this.windowWidth * 0.4;
         const minWidth = this.windowWidth * 0.08;
@@ -223,7 +223,7 @@ class GameEngine {
         const lastPlatform = this.platformManager.getTopPlatform();
         const startX = lastPlatform.x + lastPlatform.width + gap;
 
-        this.platformManager.addPlatform(startX, width);
+        this.platformManager.addPlatform(startX, width, instant);
     }
 
 

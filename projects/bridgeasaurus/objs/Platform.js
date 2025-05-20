@@ -1,5 +1,5 @@
 class Platform {
-    constructor(x, y, width, height, isStartingPlatform) {
+    constructor(x, y, width, height, isInstant) {
         this.x = x;
         //this y value will typically be the screen's height
         this.y = height;
@@ -10,7 +10,7 @@ class Platform {
         this.dy = y
         this.speed = 4
 
-        if(isStartingPlatform) {
+        if(isInstant) {
             this.y = y
         }
     }
