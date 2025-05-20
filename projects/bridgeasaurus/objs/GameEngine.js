@@ -60,6 +60,41 @@ class GameEngine {
 
         })
 
+        canvas.addEventListener('touchstart', (event) => {
+            event.preventDefault(); // prevent scrolling
+            if (this.currentPhase === Phases.WAITING) {
+                this.currentPhase = Phases.STRETCHING;
+                console.log('touchstart');
+            } else if (this.currentPhase === Phases.FALLING) {
+                this.reset();
+            }
+        });
+
+        canvas.addEventListener('touchend', (event) => {
+            event.preventDefault(); // prevent scrolling
+            if (this.currentPhase === Phases.STRETCHING) {
+                this.currentPhase = Phases.TURNING;
+                console.log('touchend');
+            }
+        });
+
+        canvas.addEventListener('mousedown', (event) => {
+            if (this.currentPhase === Phases.WAITING) {
+                this.currentPhase = Phases.STRETCHING;
+                console.log('mousedown');
+            } else if (this.currentPhase === Phases.FALLING) {
+                this.reset();
+            }
+        });
+
+        canvas.addEventListener('mouseup', (event) => {
+            if (this.currentPhase === Phases.STRETCHING) {
+                this.currentPhase = Phases.TURNING;
+                console.log('mouseup');
+            }
+        });
+
+
     }
 
     update() {
