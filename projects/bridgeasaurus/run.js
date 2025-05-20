@@ -2,10 +2,10 @@ import Game from "./objs/Game.js";
 
 let canvas = document.getElementById('game');
 
-let game = new Game(canvas);
+let run = new Game(canvas);
 
 function loop() {
-    game.gameLoop()
+    run.gameLoop()
     requestAnimationFrame(loop)
 }
 

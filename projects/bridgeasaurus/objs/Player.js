@@ -1,6 +1,6 @@
 import Phases from "./Phases.js";
 
-class StickHeroPlayer {
+class Player {
     static COOLDOWN = 10
     static FRAME_WIDTH = 24
 
@@ -78,7 +78,7 @@ class StickHeroPlayer {
         if(this.idleCounter <= 65) {
             context.drawImage(this.img, 0, 0, 24, 25, this.x, this.y, this.width, this.height)
         } else {
-            context.drawImage(this.img, StickHeroPlayer.FRAME_WIDTH * 2, 0, 25, 25, this.x, this.y, this.width, this.height)
+            context.drawImage(this.img, Player.FRAME_WIDTH * 2, 0, 25, 25, this.x, this.y, this.width, this.height)
         }
     }
 
@@ -89,9 +89,9 @@ class StickHeroPlayer {
         }
 
         if(this.walkingCounter <= 10) {
-            context.drawImage(this.img, StickHeroPlayer.FRAME_WIDTH * 5, 0, 24, 25, this.x, this.y, this.width, this.height)
+            context.drawImage(this.img, Player.FRAME_WIDTH * 5, 0, 24, 25, this.x, this.y, this.width, this.height)
         } else {
-            context.drawImage(this.img, StickHeroPlayer.FRAME_WIDTH * 6, 0, 25, 25, this.x, this.y, this.width, this.height)
+            context.drawImage(this.img, Player.FRAME_WIDTH * 6, 0, 25, 25, this.x, this.y, this.width, this.height)
         }
     }
 
@@ -102,11 +102,11 @@ class StickHeroPlayer {
         }
 
         if(this.fallingCounter <= 10) {
-            context.drawImage(this.img, StickHeroPlayer.FRAME_WIDTH * 14, 0, 25, 25, this.x, this.y, this.width, this.height)
+            context.drawImage(this.img, Player.FRAME_WIDTH * 14, 0, 25, 25, this.x, this.y, this.width, this.height)
         } else if(this.fallingCounter <= 20) {
-            context.drawImage(this.img, StickHeroPlayer.FRAME_WIDTH * 15, 0, 25, 25, this.x, this.y, this.width, this.height)
+            context.drawImage(this.img, Player.FRAME_WIDTH * 15, 0, 25, 25, this.x, this.y, this.width, this.height)
         } else {
-            context.drawImage(this.img, StickHeroPlayer.FRAME_WIDTH * 16, 0, 25, 25, this.x, this.y, this.width, this.height)
+            context.drawImage(this.img, Player.FRAME_WIDTH * 16, 0, 25, 25, this.x, this.y, this.width, this.height)
         }
     }
 
@@ -118,7 +118,7 @@ class StickHeroPlayer {
         } else if (this.isFalling) {
             this.drawFallingAnimation(context)
         } else if(this.engine.currentPhase === Phases.STRETCHING) {
-            context.drawImage(this.img, StickHeroPlayer.FRAME_WIDTH, 0, 25, 25, this.x, this.y, this.width, this.height)
+            context.drawImage(this.img, Player.FRAME_WIDTH, 0, 25, 25, this.x, this.y, this.width, this.height)
             console.log('STRETCH')
         } else {
             this.drawIdleAnimation(context)
@@ -132,4 +132,4 @@ class StickHeroPlayer {
     }
 }
 
-export default StickHeroPlayer
+export default Player

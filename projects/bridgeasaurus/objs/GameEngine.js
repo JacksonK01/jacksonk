@@ -1,4 +1,4 @@
-import StickHeroPlayer from "./StickHeroPlayer.js";
+import Player from "./Player.js";
 import Phases from "./Phases.js";
 import PlatformManager from "./PlatformManager.js";
 import BridgeManager from "./BridgeManager.js";
@@ -17,7 +17,7 @@ class GameEngine {
 
         this.startX = startingX
 
-        this.player = new StickHeroPlayer(this);
+        this.player = new Player(this);
         this.player.x = startingX
         this.player.y = startingY;
 
