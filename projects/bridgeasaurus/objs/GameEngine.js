@@ -10,9 +10,6 @@ class GameEngine {
         this.windowWidth = canvas.width;
         this.windowHeight = canvas.height;
 
-        this.resizeCanvas();
-        window.addEventListener("resize", () => this.resizeCanvas());
-
         this.isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
         this.score = 0
@@ -100,13 +97,6 @@ class GameEngine {
         });
 
 
-    }
-
-    resizeCanvas() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-        this.windowWidth = this.canvas.width;
-        this.windowHeight = this.canvas.height;
     }
 
     update() {

@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <title>Bridgeasaurus</title>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            height: 100%;
+        body {
+            display: flex;
+            justify-content: center;
+            align-content: flex-start;
         }
-
+        #game {
+            border: 20px solid black;
+            scale: 80%;
+        }
         canvas {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
             display: block;
-            width: 100vw;
-            height: 100vh;
+            margin: 0 auto;
             touch-action: none;
         }
-    </style>
 
+    </style>
 </head>
 <body>
     <canvas id="game" width="700" height="650"></canvas>
