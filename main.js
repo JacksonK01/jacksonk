@@ -3,5 +3,13 @@ document.getElementById('get-started-btn').addEventListener("click", () => {
 })
 
 document.getElementById('bridgeasaurus').addEventListener("click", () => {
-    window.location.href='./projects/bridgeasaurus/bridgeasaurus.html'
+    window.open('./projects/bridgeasaurus/bridgeasaurus.html', '_blank');
+})
+
+document.getElementById('jeopardy').addEventListener("click", () => {
+    window.open('./projects/jeopardy/jeopardy.html', '_blank');
+})
+
+document.getElementById('punchout').addEventListener("click", () => {
+    window.open('./projects/punchout/punchout.html', '_blank');
 })
