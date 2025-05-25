@@ -40,17 +40,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
     align-content: space-evenly;
-
     background-color: var(--secondary-color);
     background-image: url("assets/uni_of_umn.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-
     border: 40px solid;
     border-color: var(--secondary-color);
-
     height: 600px;
 }
 
@@ -82,7 +78,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-
     background-color: var(--tertiary-color);
     height: 500px;
 }
@@ -97,7 +92,6 @@ body {
 .jk-projects-row {
     margin: 10px;
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
     gap: 1px;
@@ -131,6 +125,22 @@ body {
     color: var(--primary-color);
 }
 
+.browser-playable {
+    border: 3px solid red;
+    box-shadow: 0 0 10px red;
+}
+
+.jk-playable-badge {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 0 5px red;
+}
+
 #jk-skills {
     display: flex;
     justify-content: center;
@@ -142,14 +152,11 @@ body {
 
 #jk-skills-elements {
     padding: 10px;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-
     width: 50%;
-
     flex-wrap: wrap;
 }
 
@@ -157,7 +164,6 @@ body {
     font-size: 25px;
     padding: 10px;
     margin: 10px;
-
     color: var(--quaternary-color);
     background-color: var(--primary-color);
 }
@@ -180,7 +186,6 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-
     height: 500px;
 }
 
@@ -200,7 +205,6 @@ body {
 
 #jk-about-me-paragraph {
     display: flex;
-
     font-size: 40px;
     color: var(--quaternary-color);
     flex-wrap: wrap;
@@ -244,7 +248,6 @@ body {
     height: 60%;
     border-radius: 20px;
     margin: 10px;
-
     background-color: var(--primary-color);
     color: var(--quaternary-color);
 }

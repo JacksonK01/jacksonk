@@ -3,13 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>Punch Out Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p.description {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .download-section {
+            text-align: center;
+        }
+
+        .download-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
 </head>
 <body>
-    <h1>Punch Out!</h1>
-    <a href="./PunchOut.zip" download>
-        <button >
-            Download
-        </button>
-    </a>
+<div class="container">
+    <h1>Punch Out! (Game)</h1>
+    <p class="description">
+        Step into the ring in Punch Out <br>
+        Test your reactions and fight Glass Joe
+    </p>
+
+    <div class="gallery">
+        <img class="img" src="showcase/start.png" alt="Game Start Screen">
+        <img class="img" src="showcase/hit.png" alt="Player Landing a Hit">
+        <img class="img" src="showcase/tired.png" alt="Tired Opponent">
+        <img class="img" src="showcase/action.png" alt="You Lose Screen">
+        <img class="img" src="showcase/lose.png" alt="You Lose Screen">
+        <img class="img" src="showcase/win.png" alt="Victory Screen">
+    </div>
+
+    <div class="download-section">
+        <a href="./PunchOut.zip" download>
+            <button class="download-button">Download Game</button>
+        </a>
+    </div>
+
+</div>
 </body>
 </html>
