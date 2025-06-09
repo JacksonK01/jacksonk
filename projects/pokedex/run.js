@@ -7,8 +7,8 @@ let currentPokemon;
 async function init() {
     try {
         //REMOVE THIS SO YOU CAN REMOVE ASYNC WRAPPER
-        const response = await fetch('./cachedpokemon/ditto.json');
-        const dittoData = await response.json();
+        // const response = await fetch('./cachedpokemon/ditto.json');
+        // const dittoData = await response.json();
 
         setNewPokemon(1);
 
