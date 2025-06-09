@@ -23,6 +23,10 @@ document.getElementById('get-started-btn').addEventListener("click", () => {
 // Project Buttons
 document.getElementById('bridgeasaurus').addEventListener("click", () => {
     window.open('./projects/bridgeasaurus/bridgeasaurus.html', '_blank');
+})
+
+document.getElementById('pokedex').addEventListener("click", () => {
+    window.open('./projects/pokedex/pokedex.html', '_blank');
 });
 
 document.getElementById('jeopardy').addEventListener("click", () => {

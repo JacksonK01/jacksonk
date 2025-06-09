@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedex App</title>
+    <link rel="stylesheet" href="pokestyle.css">
+</head>
+<body>
+  <div id="pokedex">
+    <div id="lights-top">
+      <div id="blue-light"></div>
+        <div class="small-light" id="red-light"></div>
+        <div class="small-light" id="yellow-light"></div>
+        <div class="small-light" id="green-light"></div>
+    </div>
+      <div id="line-contain">
+          <div class="line"></div>
+      </div>
+      <div id="pokemon-display">
+          <img id="display-image" src="" alt="" width="300" height="300">
+          <div class="row-layout">
+              <h3>Current Pokemon: </h3>
+              <h3 id="pokemon-display-text">MissingNo.</h3>
+          </div>
+          <div class="row-layout">
+              <h3>Number: </h3>
+              <h3 id="pokemon-display-number">-1</h3>
+          </div>
+      </div>
+
+      <div id="next-buttons">
+          <button id="previous"><</button>
+          <button id="next">></button>
+      </div>
+
+      <div id="search">
+          <label>
+              <input type="text" id="text-field">
+          </label>
+          <button id="confirm">Confirm</button>
+      </div>
+      <script type="module" src="run.js"></script>
+  </div>
+</body>
+</html>
