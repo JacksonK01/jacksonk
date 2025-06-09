@@ -7,13 +7,13 @@ let currentPokemon;
 async function init() {
     try {
         //REMOVE THIS SO YOU CAN REMOVE ASYNC WRAPPER
-        const response = await fetch('./cachedpokemon/ditto.json');
-        const dittoData = await response.json();
+        // const response = await fetch('./cachedpokemon/ditto.json');
+        // const dittoData = await response.json();
 
-        //setNewPokemon(1);
+        setNewPokemon(1);
 
-        currentPokemon = new Pokemon(dittoData)
-        reloadDisplay()
+        // currentPokemon = new Pokemon(dittoData)
+        // reloadDisplay()
 
         document.getElementById("previous").addEventListener("click", () => {
             prevPokemon();
