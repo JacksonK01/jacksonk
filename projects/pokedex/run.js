@@ -7,13 +7,13 @@ let currentPokemon;
 async function init() {
     try {
         //REMOVE THIS SO YOU CAN REMOVE ASYNC WRAPPER
-        // const response = await fetch('./cachedpokemon/ditto.json');
-        // const dittoData = await response.json();
+        const response = await fetch('./cachedpokemon/ditto.json');
+        const dittoData = await response.json();
 
-        setNewPokemon(1);
+        //setNewPokemon(1);
 
-        // currentPokemon = new Pokemon(dittoData)
-        // reloadDisplay()
+        currentPokemon = new Pokemon(dittoData)
+        reloadDisplay()
 
         document.getElementById("previous").addEventListener("click", () => {
             prevPokemon();
@@ -39,6 +39,22 @@ function reloadDisplay() {
     document.getElementById("display-image").src = currentPokemon.sprite;
     document.getElementById("pokemon-display-text").textContent = currentPokemon.name;
     document.getElementById("pokemon-display-number").textContent = currentPokemon.dexNum;
+
+    const type1El = document.getElementById("type1");
+    const type2El = document.getElementById("type2");
+
+    type1El.textContent = currentPokemon.type1;
+    type1El.className = `type-badge type-${currentPokemon.type1}`;
+
+    if (currentPokemon.type2) {
+        type2El.textContent = currentPokemon.type2;
+        type2El.className = `type-badge type-${currentPokemon.type2}`;
+        type2El.style.display = "inline-block";
+    } else {
+        type2El.textContent = "";
+        type2El.className = "type-badge";
+        type2El.style.display = "none";
+    }
 }
 
 function setNewPokemon(newPokemon) {

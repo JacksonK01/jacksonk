@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background: radial-gradient(circle, #e0f7fa, black);
 }
 
 button {
@@ -86,7 +86,7 @@ input {
 }
 
 #line-contain {
-    padding-bottom: 75px;
+    padding-bottom: 20px;
 }
 
 .line {
@@ -107,4 +107,33 @@ input {
     flex-direction: row;
     gap: 7px;
 }
+
+.type-badge {
+    padding: 4px 10px;
+    margin-right: 6px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.type-Normal { background-color: #A8A77A; }
+.type-Fire { background-color: #EE8130; }
+.type-Water { background-color: #6390F0; }
+.type-Electric { background-color: #F7D02C; }
+.type-Grass { background-color: #7AC74C; }
+.type-Ice { background-color: #96D9D6; }
+.type-Fighting { background-color: #C22E28; }
+.type-Poison { background-color: #A33EA1; }
+.type-Ground { background-color: #E2BF65; }
+.type-Flying { background-color: #A98FF3; }
+.type-Psychic { background-color: #F95587; }
+.type-Bug { background-color: #A6B91A; }
+.type-Rock { background-color: #B6A136; }
+.type-Ghost { background-color: #735797; }
+.type-Dragon { background-color: #6F35FC; }
+.type-Dark { background-color: #705746; }
+.type-Steel { background-color: #B7B7CE; }
+.type-Fairy { background-color: #D685AD; }
+
 
