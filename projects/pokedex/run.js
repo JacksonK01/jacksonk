@@ -72,10 +72,7 @@ function doesPokemonExistDexNum(dexNum) {
 }
 
 function nextPokemon() {
-    if (!currentPokemon) {
-        setNewPokemon(1)
-        return;
-    }
+    if (!currentPokemon) return;
 
     let nextNum = currentPokemon.dexNum + 1;
     if (!doesPokemonExistDexNum(nextNum)) {
@@ -85,10 +82,7 @@ function nextPokemon() {
 }
 
 function prevPokemon() {
-    if (!currentPokemon) {
-        setNewPokemon(1)
-        return;
-    }
+    if (!currentPokemon) return;
 
     let prevNum = currentPokemon.dexNum - 1;
     if (!doesPokemonExistDexNum(prevNum)) {
