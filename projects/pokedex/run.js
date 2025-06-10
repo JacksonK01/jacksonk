@@ -4,41 +4,25 @@ const url = 'https://pokeapi.co/api/v2/pokemon/';
 
 let currentPokemon;
 
-async function init() {
-    try {
-        //REMOVE THIS SO YOU CAN REMOVE ASYNC WRAPPER
-        // const response = await fetch('./cachedpokemon/ditto.json');
-        // const dittoData = await response.json();
+setNewPokemon(1);
 
-        setNewPokemon(1);
+document.getElementById("previous").addEventListener("click", () => {
+    prevPokemon();
+});
 
-        // currentPokemon = new Pokemon(dittoData)
-        // reloadDisplay()
+document.getElementById("next").addEventListener("click", () => {
+    nextPokemon();
+});
 
-        document.getElementById("previous").addEventListener("click", () => {
-            prevPokemon();
-        });
+document.getElementById("confirm").addEventListener("click", () => {
+    confirmPokemon();
+});
 
-        document.getElementById("next").addEventListener("click", () => {
-            nextPokemon();
-        });
+const textField = document.getElementById("text-field");
 
-        document.getElementById("confirm").addEventListener("click", () => {
-            confirmPokemon();
-        });
-
-        const textField = document.getElementById("text-field");
-
-        textField.addEventListener("focus", () => {
-            textField.value = "";
-        })
-
-    } catch (error) {
-        console.error("Initialization error:", error);
-    }
-}
-
-init();  // call the async function to start
+textField.addEventListener("focus", () => {
+    textField.value = "";
+})
 
 function reloadDisplay() {
     if (!currentPokemon) return;
