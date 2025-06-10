@@ -1,6 +1,7 @@
 import Pokemon from "./api/Pokemon.js";
 
 const url = 'https://pokeapi.co/api/v2/pokemon/';
+let loading = false;
 
 let currentPokemon;
 
@@ -48,8 +49,13 @@ function reloadDisplay() {
 }
 
 function setNewPokemon(newPokemon) {
-    fetch(url + newPokemon).then(response => {
+    if (loading) return;
+
+    loading = true;
+
+    fetch(url + newPokemon, { cache: "no-store" }).then(response => {
         if (!response.ok) {
+            document.getElementById("pokemon-display-text").textContent = `HTTP error! status: ${response.status}`;
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         return response.json();
@@ -58,7 +64,7 @@ function setNewPokemon(newPokemon) {
         reloadDisplay();
     }).catch(error => {
         console.error('Error:', error);
-    });
+    }).finally(() => loading = false);
 }
 
 function doesPokemonExistDexNum(dexNum) {
@@ -92,7 +98,7 @@ function prevPokemon() {
 }
 
 function confirmPokemon() {
-    let text = document.getElementById("text-field").value.toLowerCase()
+    let text = document.getElementById("text-field").value.trim().toLowerCase()
 
     let possibleNum = parseInt(text)
     if(!isNaN(possibleNum)) {
