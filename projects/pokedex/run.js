@@ -53,7 +53,7 @@ function setNewPokemon(newPokemon) {
 
     loading = true;
 
-    fetch(url + newPokemon, { cache: "no-store" }).then(response => {
+    fetch(url + newPokemon).then(response => {
         if (!response.ok) {
             document.getElementById("pokemon-display-text").textContent = `HTTP error! status: ${response.status}`;
             throw new Error(`HTTP error! status: ${response.status}`);
