@@ -2,6 +2,7 @@ import Pokemon from "./api/Pokemon.js";
 
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 let loading = false;
+let isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 let currentPokemon;
 
@@ -21,8 +22,12 @@ document.getElementById("confirm").addEventListener("click", () => {
 
 const textField = document.getElementById("text-field");
 
+let isStartingMessage = true;
 textField.addEventListener("focus", () => {
-    textField.value = "";
+    if(isStartingMessage || !isMobile) {
+        textField.value = "";
+        isStartingMessage = false;
+    }
 })
 
 function reloadDisplay() {
