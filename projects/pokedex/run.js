@@ -27,6 +27,12 @@ async function init() {
             confirmPokemon();
         });
 
+        const textField = document.getElementById("text-field");
+
+        textField.addEventListener("focus", () => {
+            textField.value = "";
+        })
+
     } catch (error) {
         console.error("Initialization error:", error);
     }

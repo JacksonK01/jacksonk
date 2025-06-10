@@ -2,7 +2,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, #e0f7fa, black);
+    min-height: 100vh;
+
+    background: radial-gradient(
+            ellipse at center,
+            #e0f7fa 0%,
+            black 100%
+    );
 }
 
 button {
@@ -21,6 +27,12 @@ button:hover {
 
 input {
     height: 50px;
+}
+
+input {
+    border-radius: 20%;
+    width: 200px;
+    background-color: lightgray;
 }
 
 #pokedex {
