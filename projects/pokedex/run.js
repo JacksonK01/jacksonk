@@ -58,19 +58,37 @@ function setNewPokemon(newPokemon) {
 
     loading = true;
 
-    fetch(url + newPokemon).then(response => {
-        if (!response.ok) {
-            document.getElementById("pokemon-display-text").textContent = `HTTP error! status: ${response.status}`;
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    }).then(data => {
-        currentPokemon = new Pokemon(data);
-        reloadDisplay();
-    }).catch(error => {
-        console.error('Error:', error);
-    }).finally(() => loading = false);
+    const timeout = 5000; //5 seconds
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeout);
+
+    fetch(url + newPokemon, { signal: controller.signal })
+        .then(response => {
+            clearTimeout(timer);
+            if (!response.ok) {
+                document.getElementById("pokemon-display-text").textContent =
+                    `HTTP error! status: ${response.status}`;
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            currentPokemon = new Pokemon(data);
+            reloadDisplay();
+        })
+        .catch(error => {
+            if (error.name === 'AbortError') {
+                document.getElementById("pokemon-display-text").textContent =
+                    "Request timed out. Please check your internet connection or firewall.";
+            } else {
+                document.getElementById("pokemon-display-text").textContent =
+                    "Failed to load Pokémon. Please check your network or try again later.";
+                console.error('Fetch error:', error);
+            }
+        })
+        .finally(() => loading = false);
 }
+
 
 function doesPokemonExistDexNum(dexNum) {
     return 0 < dexNum && dexNum <= 1025;
